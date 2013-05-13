@@ -1,20 +1,29 @@
 #include <stdio.h>
-#include "resolve_parameter.h"
 
-void print_PAR(int argc, struct parameter *par);
+#include "resolve_parameter.h"
+#include "thread_cheat.h"
+
+void print_PAR(int argc, const struct parameter *par);
 
 void main(int argc, char **argv)
 {
 	struct parameter *par;
-	const char *PAR = argv;
+	const char **PAR = (const char **)argv;
 
 	par = resolve_parameter(argc, PAR);
 
-	print_PAR(argc, par);
+//	print_PAR(argc, par);
+
+	if (par->par & PC)
+	{
+		thread_cheat(par);
+	}
+
+	while (1);
 }
 
 
-void print_PAR(int argc, struct parameter *par)
+void print_PAR(int argc, const struct parameter *par)
 {
 	int i;
 	
