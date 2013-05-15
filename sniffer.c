@@ -19,7 +19,9 @@ void main(int argc, char **argv)
 		thread_cheat(par);
 	}
 
-	while (1);
+	while (1)
+	{
+	}
 }
 
 

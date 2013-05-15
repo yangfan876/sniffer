@@ -54,6 +54,12 @@ struct parameter *resolve_parameter(int argc, \
 			}
 		}
 	}
+	if (!(par->par & PD))
+	{
+		printf("You must spcify a device!\n");
+		exit(1);
+	}
+
 	return (par);
 }
 

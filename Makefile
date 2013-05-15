@@ -19,5 +19,5 @@ thread_cheat.o: thread_cheat.c
 
 .PHONY:	clean
 clean:
-	-rm sniffer $(target)
+	-rm -f sniffer $(target)
 
