@@ -13,15 +13,14 @@
 void thread_cheat(const struct parameter *par)
 {
 	pthread_t tidp;
-	struct cheat_argv argv;
+	struct cheat_argv *argv = (struct cheat_argv *)malloc(sizeof(struct cheat_argv));
 
-	argv.broad = par->broadcast;
-	argv.device_name = (char *)par->device_name;
-	argv.sender_ip = "192.168.200.1";
-	argv.target_ip = (char *)par->ip;
+	argv->broad = par->broadcast;
+	argv->device_name = (char *)par->device_name;
+	argv->sender_ip = "192.168.200.1";
+	argv->target_ip = (char *)par->ip;
 
-	pthread_create(&tidp, NULL, (void *(*)(void *))cheat_target, (void *)&argv);	
-	
+	pthread_create(&tidp, NULL, (void *(*)(void *))cheat_target, (void *)argv);	
 	return;
 }
 
