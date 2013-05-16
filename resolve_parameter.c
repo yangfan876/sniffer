@@ -46,6 +46,11 @@ struct parameter *resolve_parameter(int argc, \
 					par->par |= PP;
 					par->protocol = argv[i+1];
 					break;
+
+				case 'A':
+					par->par |= PA;
+					par->broadcast = 1;
+					break;
 	
 				default:
 						  print_help(argv[i][1]);

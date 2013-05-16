@@ -9,11 +9,13 @@ struct parameter
 #define PD 0x2
 #define PC 0x4
 #define PP 0x8
+#define PA 0x10
 
 	unsigned char par;
 	const char *device_name;
 	const char *ip;
 	const char *protocol;
+	int broadcast;
 };
 
-#define PAR_MASK (0x10-1)
+#define PAR_MASK (0x20-1)

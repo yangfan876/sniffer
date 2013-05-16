@@ -2,7 +2,7 @@
 #	Makefile for sniffer	#
 #############################
 
-target = sniffer.o resolve_parameter.o thread_cheat.o
+target = sniffer.o resolve_parameter.o thread_cheat.o netlib.o
 
 
 sniffer: $(target)
@@ -16,6 +16,9 @@ resolve_parameter.o: resolve_parameter.c
 
 thread_cheat.o: thread_cheat.c
 	gcc -g -c -o $@ $< 
+
+netlib.o: netlib.c
+	gcc -g -c -o $@ $<
 
 .PHONY:	clean
 clean:

@@ -14,10 +14,11 @@ void thread_cheat(const struct parameter *par)
 {
 	pthread_t tidp;
 	struct cheat_argv argv;
-	argv.broad = 0;
+
+	argv.broad = par->broadcast;
 	argv.device_name = (char *)par->device_name;
-	argv.sender_ip = "192.168.200.169";
-	argv.target_ip = "192.168.200.1";
+	argv.sender_ip = "192.168.200.1";
+	argv.target_ip = (char *)par->ip;
 
 	pthread_create(&tidp, NULL, (void *(*)(void *))cheat_target, (void *)&argv);	
 	
@@ -78,5 +79,4 @@ void cheat_target (void *argv)
 		printf(">");
 		sleep(1);
 	}
-
 }
